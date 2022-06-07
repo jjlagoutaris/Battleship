@@ -10,6 +10,11 @@
     "build": "webpack --config webpack.prod.js",
     "deploy": "gh-pages -d dist"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jjlagoutaris/Battleship.git"
@@ -22,6 +27,7 @@
   },
   "homepage": "https://github.com/jjlagoutaris/Battleship#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "gh-pages": "^4.0.0",

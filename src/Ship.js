@@ -1,4 +1,4 @@
-function Ship(length, startingCoordinate, direction) {
+export function Ship(length, startingCoordinate, direction) {
 
   const getLength = () => length;
 
@@ -51,5 +51,3 @@ function Ship(length, startingCoordinate, direction) {
     setShipCoordinates, getShipCoordinates, getLength, hit, isSunk, hitCoordinates
   };
 }
-
-module.exports = Ship;

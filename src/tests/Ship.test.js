@@ -1,4 +1,4 @@
-const Ship = require('../Ship');
+import { Ship } from '../Ship';
 
 // getLength check
 test('getLength 3', () => {

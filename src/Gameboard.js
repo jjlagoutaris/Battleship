@@ -1,5 +1,3 @@
-import Ship from './Ship.js';
-
 export function Gameboard(){
   let grid = [];
   let usedCoordinates = [];
