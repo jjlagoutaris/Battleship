@@ -2,6 +2,8 @@ export function Gameboard(){
   let grid = [];
   let usedCoordinates = [];
   let gridSize = 101;
+  let shipsPlaced = [];
+  let sunkenShips = [];
 
   // using an IIFE to set all grid elements to false by default
   (()=>{
@@ -14,15 +16,40 @@ export function Gameboard(){
   function placeShip(shipObj){
     let found = usedCoordinates.some(coord => shipObj.getShipCoordinates().includes(coord));
     if(usedCoordinates.length == 0 || !found){
-      console.log('shipObjCoords', shipObj.getShipCoordinates());
       usedCoordinates = usedCoordinates.concat(shipObj.getShipCoordinates());
-      console.log(usedCoordinates);
+      shipsPlaced += shipObj;
+      return usedCoordinates;
     } else{
       console.log('placeShipElse');
+      return usedCoordinates;
+    }
+  }
+
+  function receiveAttack(atkCoord){
+    // if one of the ships is hit
+    if(usedCoordinates.includes(atkCoord)){
+      grid[atkCoord] = true;
+      // cycle through looking for the correct ship
+      for(let i = 0; i < shipsPlaced; i++){
+        // if correct, add hit
+        if(shipsPlaced[i].getShipCoordinates.includes(atkCoord)){
+          // insert UI update here
+          shipsPlaced[i].hit(atkCoord);
+          // if sunk, add ship to sunkenShips
+          if(shipsPlaced[i].isSunk()){
+            // insert UI update here
+            console.log('p1, your ship is sunk.');
+            sunkenShips += shipsPlaced[i];
+          }
+        } 
+      }
+    } else {
+      console.log('Miss');
+      // insert UI update here
     }
   }
 
   return {
-    placeShip
+    placeShip, usedCoordinates, shipsPlaced, receiveAttack
   };
 }

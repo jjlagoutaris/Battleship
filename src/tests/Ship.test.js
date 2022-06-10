@@ -63,5 +63,5 @@ describe('Ship object tests', () => {
     shipA.hit(4);
     expect(shipA.isSunk()).toBe(false);
   });
-})
+});
 
