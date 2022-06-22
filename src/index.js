@@ -1,15 +1,35 @@
 import './style.scss';
 import { Ship } from './Ship';
 import { Gameboard } from './Gameboard';
+import { Player } from './Player';
 
-let shipA = Ship(3, 12, 'horizontal');
-let shipB = Ship(4, 10, 'vertical');
-let shipC = Ship(5, 70, 'vertical');
-let shipD = Ship(3, 21, 'horizontal');
+function getPlayerName(){
+  // dom stuff here
+  // return name
+}
 
-let gameBoardA = Gameboard();
-// gameBoardA.placeShip(shipA);
-// gameBoardA.placeShip(shipB);
-// gameBoardA.placeShip(shipC);
-// gameBoardA.placeShip(shipD);
-// gameBoardA.placeShip(Ship(2, 1, 'horizontal'));
+function createPlayers(){
+
+  // get info to create players
+  const p1Name = getPlayerName();
+  const p1Board = Gameboard();
+  const p2Name = 'Computer';
+  const p2Board = Gameboard();
+  // create players passing in p1Name
+  const p1 = Player(p1Name, p1Board, p2Board);
+  const p2 = Player(p2Name, p2Board, p1Board);
+  // p1.oppBoard will be enemy gameboard
+  return { p1, p2 };
+}
+
+function mainGameLoop(){
+
+  const players = createPlayers();
+
+  while(players.p1.oppBoard.outcome !== 'over' && players.p2.oppBoard.outcome !== 'over'){
+    // run game
+  }
+
+}
+
+// mainGameLoop();
