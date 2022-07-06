@@ -98,8 +98,8 @@ describe('Gameboard tests', () => {
     gameboardA.receiveAttack(31);
     gameboardA.receiveAttack(41);
 
-    console.log(gameboardA.usedCoordinates);
+    gameboardA.gameOverCheck();
 
-    expect(gameboardA.gameOver()).toBe('over');
+    expect(gameboardA.getOutcome()).toBe('over');
   });
 });

@@ -1,0 +1,2 @@
+GOT THE NAME FROM FORM. NOW USE IT :)
+Finish generating gameboard, i.e., create the UI of the board & enemy board 

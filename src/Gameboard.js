@@ -56,18 +56,17 @@ export function Gameboard(){
     }
   }
 
-  function gameOver(){
+  function gameOverCheck(){
     let numberOfShips = 5;
     if(sunkenShips.length == numberOfShips){
-      outcome = setOutcome('over');
-      return outcome;
+      setOutcome('over');
     }
   }
   
-  const setOutcome = (newOutcome) => { outcome = newOutcome };
-  const getOutcome = () => { outcome };
+  const setOutcome = (newOutcome) => outcome = newOutcome;
+  const getOutcome = () => outcome ;
 
   return {
-    grid, placeShip, usedCoordinates, shipsPlaced, receiveAttack, setOutcome, getOutcome, gridSize, gameOver
+    grid, placeShip, usedCoordinates, shipsPlaced, receiveAttack, setOutcome, getOutcome, gridSize, gameOverCheck
   };
 }

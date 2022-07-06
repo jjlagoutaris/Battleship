@@ -5,9 +5,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Battleship</title>
+  <script src="https://kit.fontawesome.com/14ceef9952.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="../src/assets/img/icon.png" type="image/x-icon">
 </head>
 <body>
-  <h1 style="text-align: center; margin: 10px; padding: 10px; ">Battleship</h1>
+
+  <h1 style="text-align: center; ">Battleship</h1>
+
+  <div id="grids">
+    <div id="p1Grid"></div>
+    <div id="p2Grid"></div>
+  </div>
+
+  <dialog class="modal" id="nameModal">
+    <form class="form" method="dialog">
+        <div class="playerNameDiv">
+            <label for="enterPlayerName">Enter Name</label>
+            <input type="text" name="enterPlayerName" id="enterPlayerName" placeholder="Wilhelm Liebnitz">
+        </div>
+        <div class="btns">
+            <button class="nameModalSubmitBtn" type="submit"><i class="fa-solid fa-check"></i></button>
+            <button class="nameModalCancelBtn" type="button"><i class="fa-solid fa-ban"></i></button>
+        </div>
+        
+    </form>
+  </dialog>
+
 </body>
 </html>
