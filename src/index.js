@@ -14,6 +14,8 @@ function getPlayerName(){
   document.querySelector('.nameModalSubmitBtn').addEventListener('click', (e) => {
     e.preventDefault();
     name = document.getElementById('enterPlayerName').value;
+    let p1Header = document.querySelector('.p1Header');
+    p1Header.textContent = `${name}'s grid`;
     modal.close();
   });
   return name;
@@ -40,8 +42,8 @@ function createPlayerGrid(playerGrid){
     for(let j = 0; j < 10; j++){
       let cell = document.createElement('div');
       cell.classList.add('cell');
-      cell.style.width = '24px';
-      cell.style.height = '48px';
+      cell.style.width = '100px';
+      cell.style.height = '70px';
       row.appendChild(cell);
     }
     playerGrid.appendChild(row); 
@@ -50,21 +52,23 @@ function createPlayerGrid(playerGrid){
 }
 
 function generateGame(){
+  // div for two different player divs
+  const playerDivsDiv = document.querySelector('.playerDivsDiv');
+  const p1Div = document.querySelector('.leftPlayer');
+  const p2Div = document.querySelector('.rightPlayer');
   const p1grid = document.getElementById('p1Grid');
   const p2grid = document.getElementById('p2Grid');
   
+  // p1 content
   const p1CreatedGrid = createPlayerGrid(p1grid);
-  const p1Header = document.createElement('p');
-  p1Header.textContent = `Player 1 Grid`;
 
+  // p2 content
   const p2CreatedGrid = createPlayerGrid(p2grid);
-  const p2Header = document.createElement('p');
-  p2Header.textContent = `Player 2 Grid`;
 
-  document.body.append(p1Header);
-  document.body.append(p1CreatedGrid);
-  document.body.append(p2Header);
-  document.body.append(p2CreatedGrid);
+  p1Div.append(p1CreatedGrid);
+  p2Div.append(p2CreatedGrid);
+  playerDivsDiv.append(p1Div, p2Div);
+  document.body.append(playerDivsDiv);
 }
 
 function mainGameLoop(){

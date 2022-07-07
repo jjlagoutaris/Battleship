@@ -18,9 +18,20 @@ body {
   width: 100vw;
   background: center / cover no-repeat url(./assets/img/bg.jpg) lightblue;
   @include center;
-  flex-direction: row;
+  flex-direction: column;
   gap: 10px;
   text-align: center;
+}
+
+.playersDivDiv{
+  @include center;
+  flex-direction: row;
+}
+
+.leftPlayer, .rightPlayer{
+  @include center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #nameModal {
@@ -95,13 +106,8 @@ body {
   }
 }
 
-#grids{
-  display: flex;
-  flex-direction: row;
-}
-
 #p1Grid, #p2Grid{
-  width: 50%;
+  width: 80%;
   .row{
     display: flex;
     flex: 1;
